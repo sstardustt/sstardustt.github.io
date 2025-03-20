@@ -1,30 +1,31 @@
-# 🌌 sstardustt | GitHub Landing Page  
+# 🌌 Welcome to **sstardustt**'s Cosmic Repository 🚀
 
-Welcome to my **GitHub landing page!** 🚀 This is a personal space where you can find my links and get to know more about me.  
+![Galaxy Background](https://github.com/sstardustt/sstardustt.github.io/blob/main/galaxy.jpg)  
+*Exploring the universe of code and security...*
 
-## 🔥 Live Preview  
-Check out the live version of this page here:  
+Welcome to my **space-themed GitHub**! I'm a **Software Developer** and **Cybersecurity Student**, exploring the vast universe of **code** and **security**. Check out my projects and feel free to connect with me!
+
+---
+
+## 🌐 Live Website
+
+Explore my **space-themed portfolio** hosted on **GitHub Pages**:
+
 [**sstardustt.github.io**](https://sstardustt.github.io/)  
+✨ A cosmic site featuring animations and sleek designs!
 
-## 📜 About  
-This is a **space-themed** landing page built using HTML, CSS, and JavaScript. It features:  
-✨ A glowing neon aesthetic  
-🌠 Animated twinkling stars  
-🔗 Links to my **GitHub, Instagram, and LinkedIn**  
+---
 
-## 📂 How to Use  
-If you want to modify this page for your own profile:  
-1. Clone this repository:  
-   ```sh
-   git clone https://github.com/sstardustt/sstardustt.github.io
-2. Make changes to index.html, style.css, or script.js.
-3. Push your changes to GitHub:
-   ```sh
-   git add .  
-   git commit -m "Updated landing page"  
-   git push origin main  
-4. Enable GitHub Pages in Settings > Pages to host it!
-## 🔗 Connect with Me  
-- **GitHub:** [sstardustt](https://github.com/sstardustt)  
-- **Instagram:** [@davidxlves](https://www.instagram.com/davidxlves)  
-- **LinkedIn:** [David Alves](https://www.linkedin.com/in/davidxlves)  
+## 💬 Connect with Me
+
+- **GitHub**: [sstardustt](https://github.com/sstardustt)
+- **Instagram**: [@davidxlves](https://www.instagram.com/davidxlves)
+- **LinkedIn**: [David Alves](https://www.linkedin.com/in/davidxlves)
+
+---
+
+## 🎓 Cybersecurity Studies
+
+Currently studying **Cybersecurity** with a focus on ethical hacking, penetration testing, and digital defense. Always eager to learn and expand my knowledge in securing the digital world. 🚀
+
+---
