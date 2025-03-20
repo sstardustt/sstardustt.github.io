@@ -1,6 +1,6 @@
 # 🌌 Welcome to **sstardustt**'s Cosmic Repository 🚀
 
-![Galaxy Background](https://github.com/sstardustt/sstardustt.github.io/blob/main/galaxy.jpg)  
+![Galaxy Background](https://github.com/sstardustt/sstardustt.github.io/blob/main/jeremy-thomas-E0AHdsENmDg-unsplash.jpg)  
 *Exploring the universe of code and security...*
 
 Welcome to my **space-themed GitHub**! I'm a **Software Developer** and **Cybersecurity Student**, exploring the vast universe of **code** and **security**. Check out my projects and feel free to connect with me!
