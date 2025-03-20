@@ -12,7 +12,7 @@ Welcome to my **space-themed GitHub**! I'm a **Software Developer** and **Cybers
 Explore my **space-themed portfolio** hosted on **GitHub Pages**:
 
 [**sstardustt.github.io**](https://sstardustt.github.io/)  
-✨ A cosmic site featuring animations and sleek designs!
+✨ A cosmic journey through my work and projects!
 
 ---
 
@@ -24,8 +24,8 @@ Explore my **space-themed portfolio** hosted on **GitHub Pages**:
 
 ---
 
-## 🎓 Cybersecurity Studies
+## 🎓 Studies
 
-Currently studying **Cybersecurity** with a focus on ethical hacking, penetration testing, and digital defense. Always eager to learn and expand my knowledge in securing the digital world. 🚀
+Currently studying **Systems Analysis and Development** with a focus on **Cybersecurity**. I'm passionate about understanding both the technical and security aspects of software development, and I'm always eager to learn and grow in these fields. 🚀
 
 ---
