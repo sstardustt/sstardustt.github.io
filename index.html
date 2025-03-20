@@ -6,7 +6,7 @@
     <title>sstardustt | GitHub</title>
     <style>
         body {
-            background-color: #010A14; /* Dark, deep space blue */
+            background-color: #010A14; /* Deep space blue */
             color: #ffffff;
             font-family: 'Arial', sans-serif;
             text-align: center;
@@ -24,27 +24,36 @@
         }
         h1 {
             font-size: 4em;
-            color: #66fcf1; /* Cyan color for stardust glow */
-            text-shadow: 0 0 15px #66fcf1, 0 0 30px #66fcf1, 0 0 50px #58a6ff; /* Stardust glow effect */
+            background: linear-gradient(120deg, #66fcf1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px #66fcf1, 0 0 30px #a855f7, 0 0 50px #9b5de5;
+            line-height: 1.1;
+        }
+        h1 span {
+            display: block;
+        }
+        .small-text {
+            font-size: 0.8em;
         }
         p {
             font-size: 1.2em;
-            color: #b0b0b0; /* Light gray for readability */
-            margin-top: 10px;
-            text-shadow: 0 0 5px #58a6ff;
+            color: #b0b0b0; /* Light gray */
+            text-shadow: 0 0 5px #a855f7;
         }
         a {
-            color: #66fcf1; /* Cyan for cosmic theme */
+            background: linear-gradient(120deg, #66fcf1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-decoration: none;
             font-size: 1.3em;
             margin: 10px;
             display: inline-block;
-            text-shadow: 0 0 5px #58a6ff;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
+            text-shadow: 0 0 5px #a855f7;
+            transition: text-shadow 0.3s ease;
         }
         a:hover {
-            color: #a0c4ff;
-            text-shadow: 0 0 10px #a0c4ff;
+            text-shadow: 0 0 15px #a855f7, 0 0 20px #9b5de5;
         }
         .stars {
             position: absolute;
@@ -56,7 +65,7 @@
             position: absolute;
             width: 2px;
             height: 2px;
-            background: #66fcf1; /* Stardust cyan stars */
+            background: #a855f7;
             opacity: 0.6;
             animation: twinkle 3s infinite ease-in-out;
         }
@@ -64,7 +73,7 @@
             position: absolute;
             width: 2px;
             height: 2px;
-            background: rgba(102, 252, 241, 0.8); /* Stardust particles */
+            background: rgba(168, 85, 247, 0.8);
             border-radius: 50%;
             opacity: 0.6;
             animation: dustTwinkle 1.5s infinite ease-in-out;
@@ -84,7 +93,11 @@
 <body>
     <div class="stars" id="stars"></div>
     <div class="container">
-        <h1>Welcome to sstardustt</h1> <!-- Updated to sstardustt -->
+        <h1>
+            <span>Welcome</span>
+            <span class="small-text">to</span>
+            <span>sstardustt</span>
+        </h1>
         <p>Software Developer | Cybersecurity Student | Cosmic Explorer ✨</p>
         <a href="https://github.com/sstardustt" target="_blank">GitHub Profile</a>
         <a href="https://www.instagram.com/davidxlves" target="_blank">Instagram</a>
@@ -93,7 +106,7 @@
     <script>
         function createStars() {
             const starContainer = document.getElementById("stars");
-            for (let i = 0; i < 200; i++) { /* More stars to create a rich cosmic feel */
+            for (let i = 0; i < 200; i++) {
                 let star = document.createElement("div");
                 star.classList.add("star");
                 let x = Math.random() * window.innerWidth;
@@ -104,9 +117,7 @@
                 star.style.animationDuration = `${duration}s`;
                 starContainer.appendChild(star);
             }
-
-            // Adding stardust effect with small particles
-            for (let i = 0; i < 100; i++) { /* Add some stardust particles */
+            for (let i = 0; i < 100; i++) {
                 let dust = document.createElement("div");
                 dust.classList.add("dust");
                 let x = Math.random() * window.innerWidth;
