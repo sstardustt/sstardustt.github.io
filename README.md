@@ -20,9 +20,9 @@ If you want to modify this page for your own profile:
 2. Make changes to index.html, style.css, or script.js.
 3. Push your changes to GitHub:
    ```sh
-      git add .  
-      git commit -m "Updated landing page"  
-      git push origin main  
+   git add .  
+   git commit -m "Updated landing page"  
+   git push origin main  
 4. Enable GitHub Pages in Settings > Pages to host it!
 ## 🔗 Connect with Me  
 - **GitHub:** [sstardustt](https://github.com/sstardustt)  
