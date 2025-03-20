@@ -106,7 +106,7 @@
     <script>
         function createStars() {
             const starContainer = document.getElementById("stars");
-            for (let i = 0; i < 200; i++) {
+            for (let i = 0; i < 350; i++) { // More stars!
                 let star = document.createElement("div");
                 star.classList.add("star");
                 let x = Math.random() * window.innerWidth;
@@ -117,7 +117,7 @@
                 star.style.animationDuration = `${duration}s`;
                 starContainer.appendChild(star);
             }
-            for (let i = 0; i < 100; i++) {
+            for (let i = 200; i < 250; i++) { // More cosmic dust
                 let dust = document.createElement("div");
                 dust.classList.add("dust");
                 let x = Math.random() * window.innerWidth;
