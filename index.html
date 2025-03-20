@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #0d1117;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        img {
+            width: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        .repo-list {
+            list-style: none;
+            padding: 0;
+        }
+        .repo-list li {
+            margin: 10px 0;
+        }
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="name">GitHub User</h1>
+    <img id="avatar" src="" alt="Profile Image">
+    <p id="bio"></p>
+    <ul class="repo-list" id="repos"></ul>
+
+    <script>
+        const username = "sstardustt";
+
+        async function fetchGitHubProfile() {
+            const response = await fetch(`https://api.github.com/users/${username}`);
+            const data = await response.json();
+            document.getElementById("name").textContent = data.name;
+            document.getElementById("avatar").src = data.avatar_url;
+            document.getElementById("bio").textContent = data.bio;
+        }
+
+        async function fetchGitHubRepos() {
+            const response = await fetch(`https://api.github.com/users/${username}/repos`);
+            const data = await response.json();
+            const repoList = document.getElementById("repos");
+            data.forEach(repo => {
+                let li = document.createElement("li");
+                li.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
+                repoList.appendChild(li);
+            });
+        }
+
+        fetchGitHubProfile();
+        fetchGitHubRepos();
+    </script>
+</body>
+</html>
