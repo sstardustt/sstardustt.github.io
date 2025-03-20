@@ -6,8 +6,8 @@
     <title>sstardustt | GitHub</title>
     <style>
         body {
-            background-color: #0b0c10;
-            color: #c5c6c7;
+            background-color: #010A14; /* Even darker blue for contrast */
+            color: #ffffff;
             font-family: 'Arial', sans-serif;
             text-align: center;
             margin: 0;
@@ -23,22 +23,29 @@
             justify-content: center;
         }
         h1 {
-            font-size: 3em;
-            color: #66fcf1;
-            text-shadow: 0 0 10px #66fcf1;
+            font-size: 4em;
+            color: #00e5ff; /* Bright cyan for the heading */
+            text-shadow: 0 0 25px #00e5ff, 0 0 50px #00e5ff, 0 0 100px #00e5ff;
+            animation: pulse 2s infinite; /* Pulsing animation effect */
         }
         p {
-            font-size: 1.2em;
+            font-size: 1.4em;
+            color: #a9a9a9; /* Lighter grayish text */
+            margin-top: 10px;
+            text-shadow: 0 0 15px #00e5ff; /* Adding glow to the description */
         }
         a {
-            color: #45a29e;
+            color: #00e5ff;
             text-decoration: none;
-            font-size: 1.2em;
-            margin: 10px;
+            font-size: 1.5em;
+            margin: 15px;
             display: inline-block;
+            text-shadow: 0 0 15px #00e5ff, 0 0 25px #00e5ff; /* Glowing links */
+            transition: color 0.3s ease;
         }
         a:hover {
             text-decoration: underline;
+            color: #66fcf1; /* Change color on hover */
         }
         .stars {
             position: absolute;
@@ -48,16 +55,21 @@
         }
         .star {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            opacity: 0.8;
-            animation: twinkle 3s infinite;
+            width: 3px;
+            height: 3px;
+            background: #00e5ff; /* Brighter blue stars */
+            opacity: 0.9;
+            animation: twinkle 2.5s infinite alternate;
         }
         @keyframes twinkle {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
+            0% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+            100% { opacity: 0.5; transform: scale(1); }
+        }
+        @keyframes pulse {
+            0% { text-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff, 0 0 80px #00e5ff; }
+            50% { text-shadow: 0 0 50px #00e5ff, 0 0 100px #00e5ff, 0 0 200px #00e5ff; }
+            100% { text-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff, 0 0 80px #00e5ff; }
         }
     </style>
 </head>
@@ -73,7 +85,7 @@
     <script>
         function createStars() {
             const starContainer = document.getElementById("stars");
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 200; i++) { /* Increased stars for a denser effect */
                 let star = document.createElement("div");
                 star.classList.add("star");
                 let x = Math.random() * window.innerWidth;
