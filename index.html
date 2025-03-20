@@ -3,64 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Landing Page</title>
+    <title>sstardustt | GitHub</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            background-color: #0d1117;
-            color: white;
             margin: 0;
-            padding: 20px;
-        }
-        img {
-            width: 150px;
-            border-radius: 50%;
-            margin-top: 20px;
-        }
-        .repo-list {
-            list-style: none;
             padding: 0;
+            overflow: hidden;
         }
-        .repo-list li {
-            margin: 10px 0;
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: #66fcf1;
+            text-shadow: 0 0 10px #66fcf1;
+        }
+        p {
+            font-size: 1.2em;
         }
         a {
-            color: #58a6ff;
+            color: #45a29e;
             text-decoration: none;
+            font-size: 1.2em;
+            margin: 10px;
+            display: inline-block;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            opacity: 0.8;
+            animation: twinkle 3s infinite;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
         }
     </style>
 </head>
 <body>
-    <h1 id="name">GitHub User</h1>
-    <img id="avatar" src="" alt="Profile Image">
-    <p id="bio"></p>
-    <ul class="repo-list" id="repos"></ul>
-
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <h1>Welcome to sstardustt</h1>
+        <p>Software Developer | Open Source Enthusiast | Cosmic Explorer ✨</p>
+        <a href="https://github.com/sstardustt" target="_blank">GitHub Profile</a>
+        <a href="https://www.instagram.com/davidxlves" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/davidxlves" target="_blank">LinkedIn</a>
+    </div>
     <script>
-        const username = "sstardustt";
-
-        async function fetchGitHubProfile() {
-            const response = await fetch(`https://api.github.com/users/${username}`);
-            const data = await response.json();
-            document.getElementById("name").textContent = data.name;
-            document.getElementById("avatar").src = data.avatar_url;
-            document.getElementById("bio").textContent = data.bio;
+        function createStars() {
+            const starContainer = document.getElementById("stars");
+            for (let i = 0; i < 100; i++) {
+                let star = document.createElement("div");
+                star.classList.add("star");
+                let x = Math.random() * window.innerWidth;
+                let y = Math.random() * window.innerHeight;
+                let duration = Math.random() * 2 + 1;
+                star.style.left = `${x}px`;
+                star.style.top = `${y}px`;
+                star.style.animationDuration = `${duration}s`;
+                starContainer.appendChild(star);
+            }
         }
-
-        async function fetchGitHubRepos() {
-            const response = await fetch(`https://api.github.com/users/${username}/repos`);
-            const data = await response.json();
-            const repoList = document.getElementById("repos");
-            data.forEach(repo => {
-                let li = document.createElement("li");
-                li.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
-                repoList.appendChild(li);
-            });
-        }
-
-        fetchGitHubProfile();
-        fetchGitHubRepos();
+        createStars();
     </script>
 </body>
 </html>
