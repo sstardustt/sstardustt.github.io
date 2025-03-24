@@ -3,135 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sstardustt | GitHub</title>
+    <title>Interactive Stardust</title>
     <style>
         body {
-            background-color: #010A14; /* Deep space blue */
-            color: #ffffff;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
+            background: black;
+            color: white;
+            font-family: 'Courier New', monospace;
             overflow: hidden;
         }
         .container {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
         }
         h1 {
-            font-size: 4em;
-            background: linear-gradient(120deg, #66fcf1, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 15px #66fcf1, 0 0 30px #a855f7, 0 0 50px #9b5de5;
-            line-height: 1.1;
+            font-size: 3rem;
+            animation: fadeIn 2s ease-in-out;
         }
-        h1 span {
-            display: block;
-        }
-        .small-text {
-            font-size: 0.8em;
-        }
-        p {
-            font-size: 1.2em;
-            color: #b0b0b0; /* Light gray */
-            text-shadow: 0 0 5px #a855f7;
-        }
-        a {
-            background: linear-gradient(120deg, #66fcf1, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-            font-size: 1.3em;
-            margin: 10px;
-            display: inline-block;
-            text-shadow: 0 0 5px #a855f7;
-            transition: text-shadow 0.3s ease;
-        }
-        a:hover {
-            text-shadow: 0 0 15px #a855f7, 0 0 20px #9b5de5;
-        }
-        .stars {
+        .sparkles {
             position: absolute;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            pointer-events: none;
         }
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #a855f7;
-            opacity: 0.6;
-            animation: twinkle 3s infinite ease-in-out;
-        }
-        .dust {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(168, 85, 247, 0.8);
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: dustTwinkle 1.5s infinite ease-in-out;
-        }
-        @keyframes twinkle {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
-        }
-        @keyframes dustTwinkle {
-            0% { transform: scale(0.7); opacity: 0.4; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(0.7); opacity: 0.4; }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <div class="stars" id="stars"></div>
+    <canvas class="sparkles"></canvas>
     <div class="container">
-        <h1>
-            <span>Welcome</span>
-            <span class="small-text">to</span>
-            <span>sstardustt</span>
-        </h1>
-        <p>Software Developer | Cybersecurity Student | Cosmic Explorer ✨</p>
-        <a href="https://github.com/sstardustt" target="_blank">GitHub Profile</a>
-        <a href="https://www.instagram.com/davidxlves" target="_blank">Instagram</a>
-        <a href="https://www.linkedin.com/in/davidxlves" target="_blank">LinkedIn</a>
+        <h1>Welcome to Stardust</h1>
     </div>
+
     <script>
-        function createStars() {
-            const starContainer = document.getElementById("stars");
-            for (let i = 0; i < 350; i++) { // More stars!
-                let star = document.createElement("div");
-                star.classList.add("star");
-                let x = Math.random() * window.innerWidth;
-                let y = Math.random() * window.innerHeight;
-                let duration = Math.random() * 2 + 1;
-                star.style.left = `${x}px`;
-                star.style.top = `${y}px`;
-                star.style.animationDuration = `${duration}s`;
-                starContainer.appendChild(star);
-            }
-            for (let i = 200; i < 250; i++) { // More cosmic dust
-                let dust = document.createElement("div");
-                dust.classList.add("dust");
-                let x = Math.random() * window.innerWidth;
-                let y = Math.random() * window.innerHeight;
-                let size = Math.random() * 3 + 1;
-                dust.style.left = `${x}px`;
-                dust.style.top = `${y}px`;
-                dust.style.width = `${size}px`;
-                dust.style.height = `${size}px`;
-                dust.style.animationDuration = `${Math.random() * 2 + 1}s`;
-                starContainer.appendChild(dust);
-            }
+        const canvas = document.querySelector('.sparkles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let stars = [];
+        for (let i = 0; i < 100; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2,
+                alpha: Math.random()
+            });
         }
-        createStars();
+
+        function animateStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+                ctx.fill();
+                star.alpha = Math.random();
+            });
+            requestAnimationFrame(animateStars);
+        }
+        animateStars();
     </script>
 </body>
 </html>
