@@ -31,46 +31,42 @@
             display: block;
         }
 
+        /* Purple static shadows for 'Explore' and 'with' */
+        h1 span:first-child, /* 'Explore' */
+        h1 .small-text { /* 'with' */
+            text-shadow: 3px 3px 5px rgba(168, 85, 247, 0.8); /* Static purple shadow */
+        }
+
         /* Running gradient for 'Explore with' */
         h1 .explore-with {
-            background: linear-gradient(120deg, #66fcf1, #a855f7); /* Gradient from Cyan to Purple */
-            background-size: 200% auto; /* Make the gradient larger than the text */
+            background: linear-gradient(120deg, #66fcf1, #a855f7);
+            background-size: 200% auto;
             -webkit-background-clip: text;
-            color: transparent; /* Making the text gradient visible */
-            animation: runningGradient 5s linear infinite; /* Animation to move gradient */
-            display: inline; /* Ensure it remains inline with the text */
+            color: transparent;
+            animation: runningGradient 5s linear infinite;
+            display: inline;
         }
 
         /* Running gradient for 'sstardustt' with smoother transition */
         h1 .sstardustt {
-            font-size: 4em; /* Slightly bigger than the rest */
+            font-size: 4em;
             font-weight: bold;
-            background: linear-gradient(120deg, #66fcf1, #a855f7, #4e9f99, #a855f7, #66fcf1); /* Smooth gradient blend */
-            background-size: 500% 100%; /* Larger background for smoother effect */
+            background: linear-gradient(120deg, #66fcf1, #a855f7, #4e9f99, #a855f7, #66fcf1);
+            background-size: 500% 100%;
             -webkit-background-clip: text;
             color: transparent;
-            animation: smoothRunningGradient 12s ease infinite; /* Smooth transition */
+            animation: smoothRunningGradient 12s ease infinite;
         }
 
         @keyframes runningGradient {
-            0% {
-                background-position: 200% center; /* Start from the left */
-            }
-            100% {
-                background-position: -200% center; /* Move to the right */
-            }
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
         }
 
         @keyframes smoothRunningGradient {
-            0% {
-                background-position: 200% center; /* Start gradient from the left */
-            }
-            50% {
-                background-position: 0% center; /* Middle transition */
-            }
-            100% {
-                background-position: -200% center; /* End at the right side */
-            }
+            0% { background-position: 200% center; }
+            50% { background-position: 0% center; }
+            100% { background-position: -200% center; }
         }
 
         .small-text {
