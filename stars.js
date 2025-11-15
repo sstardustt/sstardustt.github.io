@@ -5,7 +5,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let stars = [];
-const STAR_COUNT = 800;
+const STAR_COUNT = 1000;
 const SPEED = 0.05;
 
 function createStars() {
