@@ -6,14 +6,16 @@ canvas.height = window.innerHeight;
 
 // ===== CAMADAS DE ESTRELAS =====
 let layers = [
-    {stars: [], speed: 0.01, count: 400},
-    {stars: [], speed: 0.03, count: 300},
-    {stars: [], speed: 0.06, count: 100}
+    {stars: [], speed: 0.01, count: 500},
+    {stars: [], speed: 0.03, count: 400},
+    {stars: [], speed: 0.06, count: 200}
 ];
 
 // ===== COMETAS =====
 let comet = null;
-const COMET_CHANCE = 0.005; // chance de spawn por frame
+let cometCooldown = 0; // delay entre cometas
+const COMET_COOLDOWN_TIME = 300; // frames de espera
+const COMET_CHANCE = 0.005;
 
 // ===== NEBULOSAS =====
 let nebulas = [];
@@ -46,7 +48,6 @@ function createNebulas() {
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             radius: 100 + Math.random() * 300,
-            color: `rgba(${168 + Math.random()*50}, ${85 + Math.random()*50}, ${247 + Math.random()*50}, 0.05)`,
             speedX: (Math.random()-0.5)*0.01,
             speedY: (Math.random()-0.5)*0.01
         });
@@ -54,17 +55,20 @@ function createNebulas() {
 }
 
 function spawnComet() {
-    if(comet) return; // só 1 cometa por vez
+    if(comet || cometCooldown > 0) return;
+
     const fromLeft = Math.random() < 0.5;
     comet = {
         x: fromLeft ? -50 : canvas.width + 50,
         y: Math.random() * canvas.height * 0.6,
         size: 2 + Math.random() * 2,
-        speed: 3 + Math.random(),
-        angle: (Math.random()*0.2 - 0.1), // leve variação diagonal
+        speed: 2 + Math.random() * 3, // velocidade varia
+        angle: (Math.random()*0.2 - 0.1),
         tail: [],
         direction: fromLeft ? 1 : -1
     };
+
+    cometCooldown = COMET_COOLDOWN_TIME; // reinicia cooldown
 }
 
 // ===== FUNÇÕES DE DESENHO =====
@@ -145,7 +149,10 @@ function animate(){
     drawNebulas();
     drawStars();
     drawComet();
-    if(!comet && Math.random() < COMET_CHANCE) spawnComet();
+
+    if(cometCooldown > 0) cometCooldown--; // decrementa cooldown
+    else if(!comet && Math.random() < COMET_CHANCE) spawnComet();
+
     requestAnimationFrame(animate);
 }
 
