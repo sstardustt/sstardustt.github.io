@@ -49,5 +49,63 @@ window.addEventListener("resize", () => {
     createStars();
 });
 
+// ===== COMETA =====
+let comet = {
+    x: -200,
+    y: Math.random() * canvas.height * 0.6,
+    size: 2,
+    speed: 4,
+    tail: []
+};
+
+function resetComet() {
+    comet.x = -200;
+    comet.y = Math.random() * canvas.height * 0.6;
+    comet.tail = [];
+}
+
+// desenha o cometa e sua cauda
+function drawComet() {
+    // adiciona ponto atual na cauda
+    comet.tail.push({ x: comet.x, y: comet.y });
+
+    // limita tamanho da cauda
+    if (comet.tail.length > 40) {
+        comet.tail.shift();
+    }
+
+    // cauda (trail)
+    for (let i = 0; i < comet.tail.length; i++) {
+        let t = comet.tail[i];
+        let alpha = i / comet.tail.length;
+        ctx.fillStyle = `rgba(255, 200, 255, ${alpha})`;
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, 2 + alpha * 3, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    // cometa
+    ctx.fillStyle = "rgba(255, 230, 255, 1)";
+    ctx.beginPath();
+    ctx.arc(comet.x, comet.y, comet.size + 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // mover
+    comet.x += comet.speed;
+    comet.y += 0.4; // leve queda diagonal
+
+    // se saiu da tela ele espera um pouco e lança outro
+    if (comet.x > canvas.width + 300) {
+        setTimeout(resetComet, 4000 + Math.random() * 4000);
+    }
+}
+
+// integra o cometa no loop do canvas
+function drawStarsAndComet() {
+    drawStars();
+    drawComet();
+    requestAnimationFrame(drawStarsAndComet);
+}
+
 createStars();
-drawStars();
+drawStarsAndComet();
