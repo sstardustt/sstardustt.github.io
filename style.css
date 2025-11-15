@@ -1,1 +1,56 @@
+/* Fundo de nebulosa roxa */
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at 20% 20%, #4b1e63 0%, #1c0f2e 50%, #0a0314 100%);
+  overflow-x: hidden;
+  color: #e4d9ff;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+}
+
+/* Título cósmico */
+h1 {
+  margin-top: 120px;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #d8baff;
+  text-shadow: 
+    0 0 10px #b47bff,
+    0 0 20px #7f39fb,
+    0 0 40px #4c1d95;
+}
+
+/* Textos e links */
+p, a {
+  font-size: 1.2rem;
+  color: #cbb2ff;
+  margin-top: 10px;
+}
+
+a {
+  transition: 0.3s;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px #e0c2ff;
+}
+
+/* Animação das estrelas */
+.star {
+  position: absolute;
+  background: white;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.1; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.4); }
+  100% { opacity: 0.1; transform: scale(0.8); }
+}
 
