@@ -4,147 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sstardustt | GitHub</title>
-    <style>
-        body {
-            background-color: #010A14; /* Deep space blue */
-            color: #ffffff;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        .container {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        h1 {
-            font-size: 3.5em; /* Regular font size for the header */
-            color: #66fcf1; /* Starting color */
-            line-height: 1.1;
-        }
-        h1 span {
-            display: block;
-        }
 
-        /* Purple static shadows for 'Explore' and 'with' */
-        h1 span:first-child, /* 'Explore' */
-        h1 .small-text { /* 'with' */
-            text-shadow: 3px 3px 5px rgba(168, 85, 247, 0.8); /* Static purple shadow */
-        }
-
-        /* Running gradient for 'Explore with' */
-        h1 .explore-with {
-            background: linear-gradient(120deg, #66fcf1, #a855f7);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: runningGradient 5s linear infinite;
-            display: inline;
-        }
-
-        /* Running gradient for 'sstardustt' with smoother transition */
-        h1 .sstardustt {
-            font-size: 4em;
-            font-weight: bold;
-            background: linear-gradient(120deg, #66fcf1, #a855f7, #4e9f99, #a855f7, #66fcf1);
-            background-size: 500% 100%;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: smoothRunningGradient 12s ease infinite;
-        }
-
-        @keyframes runningGradient {
-            0% { background-position: 200% center; }
-            100% { background-position: -200% center; }
-        }
-
-        @keyframes smoothRunningGradient {
-            0% { background-position: 200% center; }
-            50% { background-position: 0% center; }
-            100% { background-position: -200% center; }
-        }
-
-        .small-text {
-            font-size: 0.8em;
-        }
-
-        p {
-            font-size: 1.2em;
-            color: #b0b0b0; /* Light gray */
-        }
-
-        a {
-            background: linear-gradient(120deg, #66fcf1, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-            font-size: 1.3em;
-            margin: 10px;
-            display: inline-block;
-        }
-
-        a:hover {
-            text-shadow: 0 0 15px #a855f7, 0 0 20px #9b5de5;
-        }
-
-        .stars {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #a855f7;
-            opacity: 0.6;
-            animation: twinkle 3s infinite ease-in-out;
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <div class="stars" id="stars"></div>
+
     <div class="container">
         <h1>
-            <span>Explore</span>
+            <span class="explore-with">Explore</span>
             <span class="small-text">with</span>
             <span class="sstardustt">sstardustt</span>
         </h1>
+
         <p>Software Developer | Cybersecurity Student | Cosmic Explorer ✨</p>
-        <a href="https://github.com/sstardustt" target="_blank">GitHub Profile</a>
+
+        <a href="https://github.com/sstardustt" target="_blank">GitHub</a>
         <a href="https://www.instagram.com/davidxlves" target="_blank">Instagram</a>
         <a href="https://www.linkedin.com/in/davidxlves" target="_blank">LinkedIn</a>
     </div>
 
-    <script>
-        function createStars() {
-            const starContainer = document.getElementById("stars");
-            for (let i = 0; i < 500; i++) { // Increased star count
-                let star = document.createElement("div");
-                star.classList.add("star");
-                let x = Math.random() * window.innerWidth;
-                let y = Math.random() * window.innerHeight;
-                let duration = Math.random() * 2 + 1;
-                star.style.left = `${x}px`;
-                star.style.top = `${y}px`;
-                star.style.animationDuration = `${duration}s`;
-                starContainer.appendChild(star);
-            }
-        }
-        createStars();
-    </script>
+    <script src="stars.js"></script>
+
 </body>
 </html>
